@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Muz.io - Muzların Destansı Savaşına Katıl! | Ücretsiz Çevrimiçi IO Oyunu</title>
+    <meta name="description" content="Muz.io, basit ama bağımlılık yapıcı, ücretsiz çevrimiçi bir IO oyunudur. Küçük bir muz olarak başla, büyü, diğerlerini ye ve liderlik tablosunda zirveye çık! Hemen oyna!">
+    <meta name="keywords" content="Muz.io, io oyunu, ücretsiz oyun, çevrimiçi oyun, çok oyunculu oyun, büyüme oyunu, hayatta kalma oyunu, HTML5 oyun, tarayıcı oyunu, muz oyunu, eğlenceli oyunlar, online oyunlar, browser oyunu, web oyunu">
+    <meta name="author" content="[Oyun Geliştiricinizin Adı]"> <meta name="robots" content="index, follow"> <link rel="canonical" href="https://www.muz.io/muz_io_final.html"> <meta property="og:title" content="Muz.io - Muzların Destansı Savaşına Katıl!">
+    <meta property="og:description" content="Muz.io, basit ama bağımlılık yapıcı, ücretsiz çevrimiçi bir IO oyunudur. Küçük bir muz olarak başla, büyü, diğerlerini ye ve liderlik tablosunda zirveye çık! Hemen oyna!">
+    <meta property="og:image" content="https://www.muz.io/social-share-image.jpg"> <meta property="og:url" content="https://www.muz.io/muz_io_final.html"> <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <style>
+        /* Genel Stil Ayarları */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #FFD700; /* Altın sarısı */
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        header nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(to right, #87CEEB, #4682B4); /* Gökyüzü mavisi ve çelik mavisi gradyan */
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px; /* Header'ın altına boşluk bırakır */
+            height: calc(100vh - 80px); /* Ekranın kalanını kapla (header yüksekliği dahil değil) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 -5px 10px rgba(0,0,0,0.2);
+        }
+
+        #hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.6);
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #FFD700; /* Altın sarısı */
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #FFA500; /* Turuncu */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+        }
+
+        .button.primary {
+            background-color: #4CAF50; /* Yeşil */
+            color: white;
+        }
+
+        .button.primary:hover {
+            background-color: #45a049;
+        }
+
+        .button.large {
+            padding: 18px 40px;
+            font-size: 1.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        section h3 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #4682B4; /* Çelik mavisi */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-alt {
+            background-color: #e9e9e9;
+        }
+
+        /* Game Instructions */
+        .game-instructions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .instruction-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.2s;
+        }
+
+        .instruction-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .instruction-item h4 {
+            color: #FF6347; /* Domates rengi */
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #FF6347;
+            padding-bottom: 8px;
+        }
+
+        .instruction-item p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Features List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-list li {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+
+        .feature-list li::before {
+            content: '✅'; /* Checkmark emoji */
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            header nav ul {
+                margin-top: 15px;
+            }
+            header nav ul li {
+                margin: 0 10px;
+            }
+
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            section h3 {
+                font-size: 2rem;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .game-instructions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .instruction-item {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header nav ul li a {
+                font-size: 1rem;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 1.1rem;
+            }
+            .button.large {
+                padding: 15px 30px;
+                font-size: 1.3rem;
+            }
+            #hero h2 {
+                font-size: 2rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Oyun CSS (muz_io_v5.html'den) */
+        /* NOT: Body stili, oyunun tam ekran çalışması için ayrı bir alan olarak #game-area-container'a taşındı. */
+        #game-area-container {
+            width: 100vw; /* Tam ekran genişliği */
+            height: 100vh; /* Tam ekran yüksekliği */
+            position: relative;
+            background-color: #ADD8E6; /* Hafif mavi arka plan */
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: none; /* Başlangıçta gizli olacak */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        canvas {
+            display: block;
+            background-color: #1E90FF; /* Oyun içi mavi ekran arka planı */
+            width: 100%;
+            height: 100%;
+        }
+        #menu, #settings-ui, #skin-editor, #game-over-ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Daha koyu yarı şeffaf siyah overlay */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #menu h1 {
+            color: #FFD700; /* Altın sarısı */
+            font-size: 4em;
+            text-shadow: 4px 4px 6px rgba(0,0,0,0.7);
+            margin-bottom: 40px;
+        }
+        button {
+            background-color: #FFD700;
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            margin: 12px;
+            cursor: pointer;
+            font-size: 1.4em;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #FFA500;
+            transform: translateY(-3px);
+        }
+        input[type="text"] {
+            padding: 12px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 25px;
+            width: 70%;
+            max-width: 350px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        .hidden {
+            display: none !important;
+        }
+
+        /* Oyun İçi UI */
+        #game-ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* UI'ın altındaki canvas'a tıklamayı engellemez */
+            z-index: 101;
+            display: none; /* Başlangıçta gizli */
+        }
+
+        /* Oyuncu Listesi */
+        #player-list-container {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 200px;
+            max-height: calc(100vh - 30px); /* Yaklaşık ekran yüksekliği */
+            background-color: rgba(0, 0, 0, 0.7); /* Siyah yarı şeffaf arka plan */
+            border-radius: 8px;
+            padding: 10px;
+            color: white;
+            font-size: 0.9em;
+            overflow-y: auto; /* Listeyi kaydırılabilir yap */
+            pointer-events: auto; /* Sadece bu elemente tıklanabilir */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        #player-list-container h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #FFD700;
+            text-align: center;
+        }
+        .player-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .player-item:last-child {
+            border-bottom: none;
+        }
+        .player-item .name {
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+        .player-item .score {
+            color: #90EE90; /* Açık yeşil puan */
+        }
+        .player-item.self-player .name {
+            color: #00BFFF; /* Mavi kendi oyuncumuz */
+        }
+
+
+        /* Sohbet Alanı */
+        #chat-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 280px;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            pointer-events: auto; /* Sadece bu elementlere tıklanabilir */
+        }
+        #chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            color: white;
+            font-size: 0.9em;
+            word-wrap: break-word; /* Uzun kelimeleri böler */
+        }
+        .chat-message {
+            margin-bottom: 5px;
+        }
+        .chat-message .sender {
+            font-weight: bold;
+            color: #FFD700;
+        }
+        .chat-message .text {
+            color: #f0f0f0;
+        }
+        #chat-input-area {
+            display: flex;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding: 8px;
+            background-color: rgba(0,0,0,0.8);
+        }
+        #chat-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            font-size: 0.9em;
+        }
+        #chat-input::placeholder {
+            color: #bbb;
+        }
+        #send-chat-button {
+            background-color: #4CAF50; /* Yeşil gönder butonu */
+            color: white;
+            padding: 8px 12px;
+            margin-left: 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            box-shadow: none; /* Sohbet butonu için farklı stil */
+        }
+        #send-chat-button:hover {
+            background-color: #45a049;
+            transform: none;
+        }
+
+        /* Minimap */
+        #minimap {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 120px;
+            height: 120px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 2px solid white;
+            border-radius: 10px;
+            z-index: 102;
+            display: none;
+        }
+
+        /* Mobil Joystick ve Buton */
+        #mobile-joystick {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: none;
+            z-index: 103;
+            touch-action: none;
+        }
+        #mobile-joystick-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+        #mobile-action-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background-color: #FF6347;
+            color: white;
+            border-radius: 50%;
+            display: none;
+            z-index: 103;
+            font-size: 1.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            pointer-events: auto;
+        }
+
+        /* Oyun İçi Ayarlar Butonu */
+        #in-game-settings-button {
+            position: absolute;
+            top: 15px;
+            right: 320px; /* Sohbetin solunda */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 102;
+            pointer-events: auto;
+            box-shadow: 0 0 8px rgba(0,0,0,0.5);
+            transition: background-color 0.2s;
+        }
+        #in-game-settings-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: none; /* Düğme stiliyle çakışmasın */
+        }
+        /* Ayarlar dişli ikonu */
+        #in-game-settings-button::before {
+            content: '⚙️'; /* Dişli çark emojisi */
+        }
+
+
+        /* Skin Düzenleme: Emoji Karakterleri */
+        #skin-options, #titles-options, #accessories-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .skin-option, .accessory-option {
+            background-color: transparent; /* Arka plan rengi yerine emoji */
+            font-size: 40px; /* Emojinin boyutu */
+            border: 2px solid transparent; /* Varsayılan şeffaf çerçeve */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.1s, border-color 0.1s;
+            padding: 5px;
+            border-radius: 8px;
+        }
+        .skin-option:hover, .accessory-option:hover {
+            transform: scale(1.1);
+        }
+        .skin-option.selected, .accessory-option.selected {
+            border-color: yellow; /* Seçili olduğunda sarı çerçeve */
+            box-shadow: 0 0 15px rgba(255,255,0,0.7);
+        }
+        #current-skin-display {
+            background-color: transparent; /* Arka plan rengi yerine emoji */
+            font-size: 60px; /* Göstergedeki emojinin boyutu */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px dashed rgba(255,255,255,0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* Ünvan Seçenekleri */
+        .title-option {
+            padding: 8px 15px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+            font-weight: bold;
+            font-size: 1.1em;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+        .title-option.selected {
+            border-color: #FFD700; /* Altın sarısı seçili çerçeve */
+            background-color: rgba(255,255,255,0.2);
+        }
+        .title-option:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        /* Ünvan Font ve Renk Stilleri */
+        .title-gold { color: gold; font-family: 'Georgia', serif; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .title-diamond { color: #b9f2ff; font-family: 'Arial Black', sans-serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .title-legend { color: #FF4500; font-family: 'Impact', sans-serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.9); }
+        .title-master { color: #A020F0; font-family: 'Verdana', sans-serif; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); }
+
+        #game-over-ui h2 {
+            color: #FF6347; /* Kırmızımsı turuncu */
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        #game-over-ui p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header id="website-header">
+        <div class="container">
+            <h1>Muz.io</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Hakkında</a></li>
+                    <li><a href="#play">Oyna</a></li>
+                    <li><a href="#features">Özellikler</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Muzların Destansı Savaşına Katıl!</h2>
+            <p>Büyü, ye, kaç ve liderlik tablosunda zirveye oyna! **Muz.io**, ücretsiz, bağımlılık yapıcı bir çevrimiçi IO oyunudur.</p>
+            <a href="#" id="start-game-from-hero" class="button primary">Oyunu Hemen Başlat</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-alt">
+        <div class="container">
+            <h3>Muz.io Nedir?</h3>
+            <p><strong>Muz.io</strong>, basit ama bağımlılık yapıcı bir hayatta kalma ve büyüme oyunudur. Küçük bir muz olarak başlayın, haritadaki muzları toplayarak büyüyün ve diğer oyunculara (NPC'ler) karşı üstünlük kurun. En büyük muz olun ve liderlik tablosunu fethedin!</p>
+            <p>Hızlı tempolu aksiyonu, sevimli karakterleri ve rekabetçi yapısıyla Muz.io size eğlenceli saatler vaat ediyor. Tarayıcınız üzerinden **ücretsiz çevrimiçi oyun** deneyimi yaşayın. **Çok oyunculu oyun** moduyla arkadaşlarınızla veya diğer oyuncularla rekabet edin!</p>
+        </div>
+    </section>
+
+    <section id="play">
+        <div class="container">
+            <h3>Nasıl Oynanır? Muz.io Rehberi</h3>
+            <div class="game-instructions">
+                <div class="instruction-item">
+                    <h4>Hareket</h4>
+                    <p><strong>WASD</strong> tuşlarını veya **Ok Tuşlarını** kullanarak karakterinizi hareket ettirin. Mobil cihazlarda **ekrandaki joystick**'i kullanabilirsiniz. Bu **online IO oyunu** basit kontrollerle hızlıca adapte olmanızı sağlar.</p>
+                </div>
+                <div class="instruction-item">
+                    <h4>Büyüme</h4>
+                    <p>Haritadaki sarı **muzları (🍌)** toplayarak puan kazanın ve büyüyün. Amacınız **en büyük muz** olmaktır.</p>
+                </div>
+                <div class="instruction-item">
+                    <h4>Diğer Oyuncular</h4>
+                    <p>Sizden küçük olan diğer oyuncuları (NPC'ler) yiyerek daha hızlı büyüyebilirsiniz. Ancak dikkatli olun, sizden büyükler tarafından yenilebilirsiniz! Bu **hayatta kalma oyunu** stratejik kararlar gerektirir.</p>
+                </div>
+                <div class="instruction-item">
+                    <h4>Top Atma</h4>
+                    <p><strong>F tuşuna</strong> basarak veya mobil cihazlarda **sağ alttaki butona** dokunarak puan karşılığında küçük toplar fırlatın. Bu toplar başkalarına çarptığında onlara puan verir. **Muz.io**'nun eşsiz bir özelliği!</p>
+                </div>
+                <div class="instruction-item">
+                    <h4>Sıralama</h4>
+                    <p>Ekranın sol üst köşesindeki **Liderlik Tablosunu** takip ederek en iyi kim olduğunu görün. En iyi **Muz.io oyuncusu** olmak için rekabet edin!</p>
+                </div>
+                <div class="instruction-item">
+                    <h4>Özelleştirme</h4>
+                    <p>Menüden **Kostümler & Ünvanlar & Aksesuarlar** bölümüne giderek karakterinizin görünümünü kişiselleştirin. Kendinize özgü bir **oyun karakteri** yaratın!</p>
+                </div>
+            </div>
+            <a href="#" id="start-game-from-play" class="button primary large">Şimdi Ücretsiz Oyna!</a>
+        </div>
+    </section>
+
+    <section id="features" class="section-alt">
+        <div class="container">
+            <h3>Muz.io Oyun Özellikleri</h3>
+            <ul class="feature-list">
+                <li>✨ Bağımlılık Yapıcı ve Basit Oynanış - **Hızlı ve eğlenceli IO oyunu.**</li>
+                <li>🍌 Çok Sayıda Farklı Muz Karakteri Seçeneği - Kendi tarzını yarat.</li>
+                <li>👑 Özel Ünvanlar ve Aksesuarlar - Liderliğini göster.</li>
+                <li>🏆 Gerçek Zamanlı Liderlik Tablosu - Dünyanın en iyisi ol.</li>
+                <li>💬 Oyun İçi Sohbet - Diğer oyuncularla bağlantı kur.</li>
+                <li>📱 Mobil Cihaz Desteği (Joystick ile) - Her yerden **Muz.io oyna**.</li>
+                <li>⚙️ Özelleştirilebilir Ayarlar (Müzik Sesi vb.) - Oyun deneyimini kişiselleştir.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h3>Muz.io İletişim</h3>
+            <p>Oyun hakkında sorularınız, geri bildirimleriniz veya önerileriniz mi var? Bizimle iletişime geçmekten çekinmeyin! Amacımız, **Muz.io**'yu en iyi **ücretsiz çevrimiçi oyun** yapmak.</p>
+            <p>E-posta: destek@muz.io (Örnek e-posta adresi, kendi adresinizi girin)</p>
+            <p>Sosyal Medya: Yakında! Bizi takip edin!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muz.io. Tüm Hakları Saklıdır. | <a href="/gizlilik-politikasi.html" style="color: white; text-decoration: underline;">Gizlilik Politikası</a> | <a href="/kullanım-şartları.html" style="color: white; text-decoration: underline;">Kullanım Şartları</a></p>
+        </div>
+    </footer>
+
+    <div id="game-area-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="menu">
+            <h1>Muz.io</h1>
+            <input type="text" id="player-name-input" placeholder="Kullanıcı Adı Girin">
+            <button id="start-game-button">Oyuna Başla</button>
+            <button id="skin-editor-button">Kostümler & Ünvanlar & Aksesuarlar</button>
+            <button id="settings-button">Ayarlar</button>
+            <button id="exit-button">Çıkış</button>
+        </div>
+
+        <div id="settings-ui" class="hidden">
+            <h2>Ayarlar</h2>
+            <p>Müzik Sesi: <input type="range" min="0" max="100" value="50" id="music-volume-slider"></p>
+            <button id="leave-game-button" class="hidden">Oyundan Ayrıl</button> <button id="back-from-settings">Geri</button>
+            <div id="music-controls" style="margin-top: 20px;">
+                <button id="play-music-button">Müzik Çal</button>
+                <button id="pause-music-button">Müzik Duraklat</button>
+            </div>
+        </div>
+
+        <div id="skin-editor" class="hidden">
+            <h2>Kostümler & Ünvanlar & Aksesuarlar</h2>
+            <h3>Karakter Kostümü</h3>
+            <div id="current-skin-display">🍌</div> <div id="skin-options">
+                <div class="skin-option selected" data-emoji="🍌">🍌</div>
+                <div class="skin-option" data-emoji="🍎">🍎</div>
+                <div class="skin-option" data-emoji="🍇">🍇</div>
+                <div class="skin-option" data-emoji="🍓">🍓</div>
+                <div class="skin-option" data-emoji="🍍">🍍</div>
+                <div class="skin-option" data-emoji="🍈">🍈</div>
+                <div class="skin-option" data-emoji="🥝">🥝</div>
+                <div class="skin-option" data-emoji="🍊">🍊</div>
+                <div class="skin-option" data-emoji="🍉">🍉</div>
+                <div class="skin-option" data-emoji="🍒">🍒</div>
+                <div class="skin-option" data-emoji="🍑">🍑</div>
+                <div class="skin-option" data-emoji="🥭">🥭</div>
+            </div>
+
+            <h3>Ünvan Seçimi</h3>
+            <div id="titles-options">
+                <div class="title-option selected" data-title="" data-color="white" data-font="Arial">Yok</div>
+                <div class="title-option" data-title="Altın Ünvan" data-color="gold" data-font="Georgia">Altın Ünvan</div>
+                <div class="title-option" data-title="Elmas Ünvan" data-color="#b9f2ff" data-font="Arial Black">Elmas Ünvan</div>
+                <div class="title-option" data-title="Efsane" data-color="#FF4500" data-font="Impact">Efsane</div>
+                <div class="title-option" data-title="Usta" data-color="#A020F0" data-font="Verdana">Usta</div>
+            </div>
+
+            <h3>Aksesuar Seçimi</h3>
+            <div id="accessories-options">
+                <div class="accessory-option selected" data-accessory=""></div> <div class="accessory-option" data-accessory="🎩">🎩</div> <div class="accessory-option" data-accessory="👑">👑</div> <div class="accessory-option" data-accessory="🕶️">🕶️</div> <div class="accessory-option" data-accessory="🎀">🎀</div> <div class="accessory-option" data-accessory="🧢">🧢</div> </div>
+
+            <button id="back-from-skin-editor">Geri</button>
+        </div>
+
+        <div id="game-over-ui" class="hidden">
+            <h2>Oyun Bitti!</h2>
+            <p id="game-over-reason"></p>
+            <button id="restart-game-button-game-over">Yeniden Başla</button>
+        </div>
+
+        <div id="game-ui" class="hidden">
+            <div id="player-list-container">
+                <h3>Sıralama</h3>
+                <div id="player-ranking-list">
+                    </div>
+            </div>
+
+            <div id="chat-container">
+                <div id="chat-messages">
+                    </div>
+                <div id="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Mesaj yaz...">
+                    <button id="send-chat-button">Gönder</button>
+                </div>
+            </div>
+
+            <button id="in-game-settings-button"></button>
+
+            <div id="minimap"></div>
+
+            <div id="mobile-joystick" class="hidden">
+                <div id="mobile-joystick-handle"></div>
+            </div>
+            <button id="mobile-action-button" class="hidden">E</button>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Web Sitesi ve Oyun Geçiş Kontrolleri ---
+        const websiteHeader = document.getElementById('website-header');
+        const mainContentSections = document.querySelectorAll('section');
+        const gameAreaContainer = document.getElementById('game-area-container');
+
+        const startGameFromHeroButton = document.getElementById('start-game-from-hero');
+        const startGameFromPlayButton = document.getElementById('start-game-from-play');
+        const exitGameButton = document.getElementById('exit-button'); // Oyun içindeki çıkış butonu
+
+        function showWebsite() {
+            websiteHeader.style.display = 'flex'; // Header'ı göster
+            mainContentSections.forEach(section => section.style.display = 'block'); // Bölümleri göster
+            gameAreaContainer.style.display = 'none'; // Oyun alanını gizle
+            exitFullScreen(); // Tam ekrandan çık
+            document.body.style.backgroundColor = '#f4f4f4'; // Web sitesi arka plan rengi
+            gameMusic.pause(); // Oyundan çıkınca müziği duraklat
+            player.dx = 0; // Oyuncu hareketini durdur
+            player.dy = 0;
+            addChatMessage("Sistem", "Muz.io ana sayfasına geri döndünüz.", true);
+        }
+
+        function showGame() {
+            websiteHeader.style.display = 'none'; // Header'ı gizle
+            mainContentSections.forEach(section => section.style.display = 'none'); // Bölümleri gizle
+            gameAreaContainer.style.display = 'flex'; // Oyun alanını göster
+            document.body.style.backgroundColor = '#87CEEB'; // Oyunun kendi body rengi
+            requestFullScreen(document.documentElement); // Oyunu tam ekrana al
+            showScreen('menu'); // Oyunun kendi menüsünü göster
+        }
+
+        startGameFromHeroButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Varsayılan bağlantı davranışını engelle
+            showGame();
+        });
+
+        startGameFromPlayButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Varsayılan bağlantı davranışını engelle
+            showGame();
+        });
+
+        // Oyun içindeki "Çıkış" butonu ana sayfaya dönecek
+        exitGameButton.addEventListener('click', () => {
+            gameStarted = false; // Oyun döngüsünü durdur
+            cancelAnimationFrame(animationFrameId);
+            showWebsite();
+        });
+
+        // --- Oyun Kodu Başlangıcı (muz_io_v5.html'den kopyalanmıştır) ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Canvas boyutunu pencere boyutuna ayarla
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Joystick merkez konumunu da güncellemek gerekebilir
+            if (isMobileDevice()) {
+                const newJoystickBaseRect = mobileJoystick.getBoundingClientRect();
+                joystickCenterX = newJoystickBaseRect.left + newJoystickBaseRect.width / 2;
+                joystickCenterY = newJoystickBaseRect.top + newJoystickBaseRect.height / 2;
+            }
+        }
+        // setCanvasSize(); // Sayfa yüklendiğinde ayarla - Sadece oyun aktifken çağrılmalı
+        window.addEventListener('resize', () => {
+            if (gameAreaContainer.style.display === 'flex') { // Sadece oyun görünürken boyutlandır
+                setCanvasSize();
+            }
+        });
+
+        // UI Elemanları
+        const menu = document.getElementById('menu');
+        const settingsUI = document.getElementById('settings-ui');
+        const skinEditorUI = document.getElementById('skin-editor');
+        const gameUI = document.getElementById('game-ui');
+        const gameOverUI = document.getElementById('game-over-ui');
+        const gameOverReason = document.getElementById('game-over-reason');
+        const playerNameInput = document.getElementById('player-name-input');
+        const currentSkinDisplay = document.getElementById('current-skin-display');
+        const skinOptions = document.querySelectorAll('#skin-options .skin-option');
+        const titlesOptions = document.querySelectorAll('#titles-options .title-option');
+        const accessoriesOptions = document.querySelectorAll('#accessories-options .accessory-option');
+        const minimap = document.getElementById('minimap');
+        const mobileJoystick = document.getElementById('mobile-joystick');
+        const mobileActionButton = document.getElementById('mobile-action-button');
+        const playerRankingList = document.getElementById('player-ranking-list');
+        const chatMessagesDiv = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendChatButton = document.getElementById('send-chat-button');
+        const inGameSettingsButton = document.getElementById('in-game-settings-button');
+        const leaveGameButton = document.getElementById('leave-game-button');
+        const backFromSettingsButton = document.getElementById('back-from-settings');
+        const restartGameButtonGameOver = document.getElementById('restart-game-button-game-over');
+
+
+        // Müzik kontrolü
+        const gameMusic = new Audio('oyun_muzigi.mp3'); // Dosyayı bu HTML ile aynı klasöre koyun
+        gameMusic.loop = true;
+        gameMusic.volume = 0.5;
+
+        document.getElementById('play-music-button').addEventListener('click', () => gameMusic.play());
+        document.getElementById('pause-music-button').addEventListener('click', () => gameMusic.pause());
+        document.getElementById('music-volume-slider').addEventListener('input', (e) => {
+            gameMusic.volume = e.target.value / 100;
+        });
+
+        // Oyun Durumu Değişkenleri
+        let playerName = "Oyuncu";
+        let playerSkinEmoji = "🍌";
+        let playerTitle = { text: "", color: "white", font: "Arial" };
+        let playerAccessory = "";
+        let gameStarted = false;
+        let isChatActive = false;
+        let animationFrameId;
+
+        const GAME_WORLD_WIDTH = 3000;
+        const GAME_WORLD_HEIGHT = 2000;
+
+        let player = {
+            id: 'player_self',
+            x: GAME_WORLD_WIDTH / 2,
+            y: GAME_WORLD_HEIGHT / 2,
+            radius: 20,
+            color: 'red',
+            emoji: playerSkinEmoji,
+            title: playerTitle,
+            accessory: playerAccessory,
+            dx: 0,
+            dy: 0,
+            score: 0
+        };
+
+        const BASE_MOVEMENT_SPEED = 2.5;
+        let cameraZoom = 1;
+        const MIN_ZOOM = 0.3;
+        const MAX_ZOOM = 1.5;
+
+        let bananas = [];
+        const INITIAL_BANANAS = 150;
+        const BANANA_RADIUS = 7;
+
+        let npcs = [];
+        const INITIAL_NPCS = 10;
+
+        let thrownProjectiles = [];
+
+        // --- Yardımcı Fonksiyonlar ---
+        function distance(x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        }
+
+        function generateRandomBanana() {
+            return {
+                x: Math.random() * GAME_WORLD_WIDTH,
+                y: Math.random() * GAME_WORLD_HEIGHT,
+                radius: BANANA_RADIUS,
+                color: 'yellow'
+            };
+        }
+
+        function spawnBananas(count) {
+            for (let i = 0; i < count; i++) {
+                bananas.push(generateRandomBanana());
+            }
+        }
+
+        function createNPC(id, emoji, score) {
+            return {
+                id: id,
+                x: Math.random() * GAME_WORLD_WIDTH,
+                y: Math.random() * GAME_WORLD_HEIGHT,
+                radius: 20 + Math.random() * 30,
+                color: 'gray',
+                emoji: emoji,
+                title: { text: "", color: "white", font: "Arial" },
+                accessory: "",
+                dx: (Math.random() - 0.5) * 2,
+                dy: (Math.random() - 0.5) * 2,
+                score: score
+            };
+        }
+
+        function spawnNPCs(count) {
+             const emojis = ['🐶', '🐱', '🐭', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🐵', '🐸', '🐷', '🦁', '🦉', '🦋'];
+             for (let i = 0; i < count; i++) {
+                 const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                 npcs.push(createNPC(`Bot_${i + 1}`, randomEmoji, Math.floor(Math.random() * 200)));
+             }
+         }
+
+        // --- Tam Ekran Fonksiyonu ---
+        function requestFullScreen(element) {
+            if (document.fullscreenElement) { // Zaten tam ekrandaysa bir şey yapma
+                return;
+            }
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        }
+
+        function exitFullScreen() {
+            if (document.fullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        // --- Oyun Sonu Fonksiyonu ---
+        function gameOver(reason) {
+            gameStarted = false;
+            cancelAnimationFrame(animationFrameId);
+            gameMusic.pause();
+            player.dx = 0;
+            player.dy = 0;
+            gameOverReason.textContent = reason;
+            showScreen('game-over-ui');
+            exitFullScreen();
+            addChatMessage("Sistem", "Oyununuz sona erdi.", true);
+        }
+
+        function resetGame() {
+            player.x = GAME_WORLD_WIDTH / 2;
+            player.y = GAME_WORLD_HEIGHT / 2;
+            player.radius = 20;
+            player.score = 0;
+            player.emoji = playerSkinEmoji;
+            player.title = playerTitle;
+            player.accessory = playerAccessory;
+            bananas = [];
+            npcs = [];
+            thrownProjectiles = [];
+            cameraZoom = 1;
+            spawnBananas(INITIAL_BANANAS);
+            spawnNPCs(INITIAL_NPCS);
+            showScreen('game-ui');
+            startGameLoop();
+            gameMusic.play();
+            requestFullScreen(document.documentElement);
+            addChatMessage("Sistem", `${playerName}, yeniden oyundasınız!`, true);
+        }
+
+        // --- UI Görüntüleme Fonksiyonları ---
+        function showScreen(screenId) {
+            // Sadece oyun UI'larını yönet
+            const gameScreens = [menu, settingsUI, skinEditorUI, gameUI, gameOverUI];
+            gameScreens.forEach(screen => {
+                if (screen.id !== screenId) {
+                    screen.classList.add('hidden');
+                }
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+
+            // Ek UI'ları yönet (minimap, in-game settings button, mobile controls)
+            if (screenId === 'game-ui') {
+                 gameUI.classList.remove('hidden');
+                 minimap.classList.remove('hidden');
+                 inGameSettingsButton.classList.remove('hidden');
+                 if (isMobileDevice()) {
+                     mobileJoystick.classList.remove('hidden');
+                     mobileActionButton.classList.remove('hidden');
+                 }
+                 setCanvasSize(); // Oyun ekranına geçince canvas boyutunu ayarla
+            } else {
+                 gameUI.classList.add('hidden');
+                 minimap.classList.add('hidden');
+                 inGameSettingsButton.classList.add('hidden');
+                 mobileJoystick.classList.add('hidden');
+                 mobileActionButton.classList.add('hidden');
+            }
+
+            if (screenId === 'settings-ui') {
+                if (gameStarted) {
+                    leaveGameButton.classList.remove('hidden');
+                } else {
+                    leaveGameButton.classList.add('hidden');
+                }
+                backFromSettingsButton.classList.remove('hidden');
+            }
+
+            if (screenId === 'game-over-ui') {
+                restartGameButtonGameOver.classList.remove('hidden');
+            } else {
+                restartGameButtonGameOver.classList.add('hidden');
+            }
+        }
+
+        // --- Menü Buton Olayları (Oyun Menüsü) ---
+        document.getElementById('start-game-button').addEventListener('click', () => {
+            playerName = playerNameInput.value.trim() || "Oyuncu";
+            gameStarted = true;
+            player.x = GAME_WORLD_WIDTH / 2;
+            player.y = GAME_WORLD_HEIGHT / 2;
+            player.radius = 20;
+            player.score = 0;
+            player.emoji = playerSkinEmoji;
+            player.title = playerTitle;
+            player.accessory = playerAccessory;
+            bananas = [];
+            npcs = [];
+            thrownProjectiles = [];
+            cameraZoom = 1;
+
+            spawnBananas(INITIAL_BANANAS);
+            spawnNPCs(INITIAL_NPCS);
+            showScreen('game-ui');
+            startGameLoop();
+            gameMusic.play();
+            requestFullScreen(document.documentElement);
+            addChatMessage("Sistem", `${playerName}, Muz.io'ya hoş geldiniz!`, true);
+        });
+
+        document.getElementById('skin-editor-button').addEventListener('click', () => {
+            showScreen('skin-editor');
+            currentSkinDisplay.textContent = playerSkinEmoji;
+        });
+
+        document.getElementById('settings-button').addEventListener('click', () => {
+            showScreen('settings-ui');
+        });
+
+        // NOT: Oyunun kendi "Çıkış" butonu yukarıda `exitGameButton` ile yönetiliyor.
+
+        inGameSettingsButton.addEventListener('click', () => {
+            showScreen('settings-ui');
+        });
+
+        backFromSettingsButton.addEventListener('click', () => {
+            if (gameStarted) {
+                showScreen('game-ui');
+            } else {
+                showScreen('menu');
+            }
+        });
+
+        leaveGameButton.addEventListener('click', () => {
+            gameStarted = false;
+            cancelAnimationFrame(animationFrameId);
+            gameMusic.pause();
+            player.dx = 0;
+            player.dy = 0;
+            showWebsite(); // Ana web sitesine dön
+            addChatMessage("Sistem", "Oyundan ayrıldınız. Tekrar bekleriz!", true);
+        });
+
+        document.getElementById('back-from-skin-editor').addEventListener('click', () => {
+            showScreen('menu');
+        });
+
+        restartGameButtonGameOver.addEventListener('click', () => {
+            resetGame();
+        });
+
+
+        // --- Kostüm Düzenleme Mantığı (Emoji Karakterler) ---
+        skinOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelector('#skin-options .skin-option.selected')?.classList.remove('selected');
+                option.classList.add('selected');
+                playerSkinEmoji = option.dataset.emoji;
+                currentSkinDisplay.textContent = playerSkinEmoji;
+                player.emoji = playerSkinEmoji;
+            });
+        });
+
+        // --- Ünvan Seçimi Mantığı ---
+        titlesOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelector('#titles-options .title-option.selected')?.classList.remove('selected');
+                option.classList.add('selected');
+                playerTitle.text = option.dataset.title;
+                playerTitle.color = option.dataset.color;
+                playerTitle.font = option.dataset.font;
+                player.title = { ...playerTitle };
+            });
+        });
+
+        // --- Aksesuar Seçimi Mantığı ---
+        accessoriesOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelector('#accessories-options .accessory-option.selected')?.classList.remove('selected');
+                option.classList.add('selected');
+                playerAccessory = option.dataset.accessory;
+                player.accessory = playerAccessory;
+            });
+        });
+
+
+        // --- Oyun Çizim Fonksiyonları ---
+        function drawPlayer(p) {
+            const screenX = canvas.width / 2 + (p.x - player.x) * cameraZoom;
+            const screenY = canvas.height / 2 + (p.y - player.y) * cameraZoom;
+
+            if (screenX + p.radius * cameraZoom < 0 || screenX - p.radius * cameraZoom > canvas.width ||
+                screenY + p.radius * cameraZoom < 0 || screenY - p.radius * cameraZoom > canvas.height) {
+                return;
+            }
+
+            // Daireyi çiz
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, p.radius * cameraZoom, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 2 * cameraZoom;
+            ctx.stroke();
+            ctx.closePath();
+
+            // Emoji karakterini çiz
+            const emojiFontSize = Math.max(20, p.radius * 1.2 * cameraZoom); // Emojinin boyutunu artır
+            ctx.font = `${emojiFontSize}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(p.emoji, screenX, screenY);
+
+            // Aksesuarı çiz (eğer varsa)
+            if (p.accessory) {
+                const accessoryFontSize = Math.max(15, p.radius * 0.7 * cameraZoom); // Aksesuar boyutunu ayarla
+                ctx.font = `${accessoryFontSize}px Arial`;
+                ctx.fillText(p.accessory, screenX, screenY - p.radius * 0.9 * cameraZoom); // Yarıçapın üstüne, biraz daha yukarı
+            }
+
+            // Kullanıcı adını ve ünvanı çiz
+            ctx.fillStyle = 'white';
+            const nameFontSize = Math.max(12, p.radius * 0.3 * cameraZoom);
+            const scoreFontSize = Math.max(10, p.radius * 0.25 * cameraZoom);
+
+            const displayName = (p.id === player.id) ? playerName : p.id;
+            const fullDisplayName = p.title && p.title.text ? `[${p.title.text}] ${displayName}` : displayName;
+
+            ctx.font = `${nameFontSize}px ${p.title ? p.title.font : 'Arial'}`;
+            ctx.fillStyle = p.title ? p.title.color : 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            ctx.fillText(fullDisplayName, screenX, screenY + p.radius * cameraZoom + 5 * cameraZoom);
+
+            // Puanı çiz
+            ctx.fillStyle = 'white';
+            ctx.font = `${scoreFontSize}px Arial`;
+            ctx.fillText(`Puan: ${p.score.toFixed(0)}`, screenX, screenY + p.radius * cameraZoom + 5 * cameraZoom + nameFontSize + 2);
+        }
+
+        function drawBanana(banana) {
+            const screenX = canvas.width / 2 + (banana.x - player.x) * cameraZoom;
+            const screenY = canvas.height / 2 + (banana.y - player.y) * cameraZoom;
+
+            if (screenX + banana.radius * cameraZoom < 0 || screenX - banana.radius * cameraZoom > canvas.width ||
+                screenY + banana.radius * cameraZoom < 0 || screenY - banana.radius * cameraZoom > canvas.height) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, banana.radius * cameraZoom, 0, Math.PI * 2);
+            ctx.fillStyle = banana.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawProjectile(proj) {
+            const screenX = canvas.width / 2 + (proj.x - player.x) * cameraZoom;
+            const screenY = canvas.height / 2 + (proj.y - player.y) * cameraZoom;
+
+            if (screenX + proj.radius * cameraZoom < 0 || screenX - proj.radius * cameraZoom > canvas.width ||
+                screenY + proj.radius * cameraZoom < 0 || screenY - proj.radius * cameraZoom > canvas.height) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.arc(screenX, screenY, proj.radius * cameraZoom, 0, Math.PI * 2);
+            ctx.fillStyle = proj.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#1E90FF'; // Mavi ekran
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (gameStarted) {
+                bananas.forEach(drawBanana);
+                npcs.forEach(drawPlayer);
+                thrownProjectiles.forEach(drawProjectile);
+                drawPlayer(player);
+            }
+        }
+
+        // --- Oyun Döngüsü ---
+        function startGameLoop() {
+            if (!gameStarted) {
+                cancelAnimationFrame(animationFrameId);
+                return;
+            }
+
+            const getSpeed = (radius) => {
+                return BASE_MOVEMENT_SPEED;
+            };
+
+            const playerSpeed = getSpeed(player.radius);
+
+            const newPlayerX = player.x + player.dx * playerSpeed;
+            const newPlayerY = player.y + player.dy * playerSpeed;
+
+            player.x = Math.max(player.radius, Math.min(GAME_WORLD_WIDTH - player.radius, newPlayerX));
+            player.y = Math.max(player.radius, Math.min(GAME_WORLD_HEIGHT - player.radius, newPlayerY));
+
+            npcs.forEach(npc => {
+                const npcSpeed = getSpeed(npc.radius);
+                npc.x += npc.dx * npcSpeed;
+                npc.y += npc.dy * npcSpeed;
+
+                npc.x = Math.max(npc.radius, Math.min(GAME_WORLD_WIDTH - npc.radius, npc.x));
+                npc.y = Math.max(npc.radius, Math.min(GAME_WORLD_HEIGHT - npc.radius, npc.y));
+
+                if (npc.x <= npc.radius || npc.x >= GAME_WORLD_WIDTH - npc.radius) npc.dx *= -1;
+                if (npc.y <= npc.radius || npc.y >= GAME_WORLD_HEIGHT - npc.radius) npc.dy *= -1;
+
+                const distToPlayer = distance(player.x, player.y, npc.x, npc.y);
+                const combinedRadiusPlayerNpc = player.radius + npc.radius;
+
+                if (distToPlayer < combinedRadiusPlayerNpc + 50) {
+                    if (player.radius > npc.radius * 1.1) {
+                        const angle = Math.atan2(npc.y - player.y, npc.x - player.x);
+                        npc.dx = Math.cos(angle) * npcSpeed * 0.8;
+                        npc.dy = Math.sin(angle) * npcSpeed * 0.8;
+                    } else if (player.radius * 1.1 < npc.radius) {
+                        const angle = Math.atan2(player.y - npc.y, player.x - npc.x);
+                        npc.dx = Math.cos(angle) * npcSpeed * 0.9;
+                        npc.dy = Math.sin(angle) * npcSpeed * 0.9;
+                    }
+                } else {
+                    if (Math.random() < 0.01) {
+                        npc.dx = (Math.random() - 0.5) * 2;
+                        npc.dy = (Math.random() - 0.5) * 2;
+                    }
+                }
+            });
+
+            for (let i = bananas.length - 1; i >= 0; i--) {
+                const banana = bananas[i];
+                if (distance(player.x, player.y, banana.x, banana.y) < player.radius + banana.radius) {
+                    player.score += 1;
+                    player.radius += 0.5;
+                    player.radius = Math.max(20, player.radius);
+                    player.radius = Math.min(250, player.radius);
+
+                    bananas.splice(i, 1);
+                    if (bananas.length < INITIAL_BANANAS) {
+                        bananas.push(generateRandomBanana());
+                    }
+
+                    cameraZoom = 1 / (1 + (player.radius - 20) / 150);
+                    cameraZoom = Math.max(cameraZoom, MIN_ZOOM);
+                    cameraZoom = Math.min(cameraZoom, MAX_ZOOM);
+                }
+            }
+
+            for (let i = thrownProjectiles.length - 1; i >= 0; i--) {
+                const proj = thrownProjectiles[i];
+                proj.x += proj.dx;
+                proj.y += proj.dy;
+
+                proj.life--;
+                if (proj.life <= 0) {
+                    thrownProjectiles.splice(i, 1);
+                    continue;
+                }
+
+                const allOtherEntities = [...npcs];
+
+                for (let j = allOtherEntities.length - 1; j >= 0; j--) {
+                    const target = allOtherEntities[j];
+                    if (distance(proj.x, proj.y, target.x, target.y) < proj.radius + target.radius) {
+                        target.score += proj.scoreGiven;
+                        target.radius += proj.scoreGiven / 20;
+                        target.radius = Math.max(20, target.radius);
+                        target.radius = Math.min(250, target.radius);
+
+                        thrownProjectiles.splice(i, 1);
+                        break;
+                    }
+                }
+                if (distance(proj.x, proj.y, player.x, player.y) < proj.radius + player.radius && proj.ownerId !== player.id) {
+                     player.score += proj.scoreGiven;
+                     player.radius += proj.scoreGiven / 20;
+                     player.radius = Math.max(20, player.radius);
+                     player.radius = Math.min(250, player.radius);
+                     thrownProjectiles.splice(i, 1);
+                }
+            }
+
+
+            const allOtherEntities = [...npcs];
+
+            for (let i = allOtherEntities.length - 1; i >= 0; i--) {
+                const target = allOtherEntities[i];
+
+                if (distance(player.x, player.y, target.x, target.y) < player.radius - target.radius / 3) {
+                    if (player.radius > target.radius * 1.1) {
+                        player.score += target.score + target.radius * 2;
+                        player.radius += target.radius * 0.5;
+
+                        if (target.id.startsWith('Bot_')) {
+                            npcs.splice(npcs.indexOf(target), 1);
+                            npcs.push(createNPC(`Bot_${Math.floor(Math.random() * 10000)}`, target.emoji, Math.floor(Math.random() * 200)));
+                        }
+                        cameraZoom = 1 / (1 + (player.radius - 20) / 150);
+                        cameraZoom = Math.max(cameraZoom, MIN_ZOOM);
+                        cameraZoom = Math.min(cameraZoom, MAX_ZOOM);
+                    } else if (player.radius * 1.1 < target.radius) {
+                        gameOver(`Daha büyük bir oyuncuya (${target.id}) çarptınız! Puanınız: ${player.score.toFixed(0)}`);
+                        return;
+                    }
+                }
+            }
+
+            updatePlayerRanking();
+            drawGame();
+
+            animationFrameId = requestAnimationFrame(startGameLoop);
+        }
+
+        // --- Oyuncu Sıralaması ---
+        function updatePlayerRanking() {
+            let allPlayers = [{ ...player, name: playerName, isSelf: true }, ...npcs];
+
+            allPlayers.sort((a, b) => b.score - a.score);
+
+            playerRankingList.innerHTML = '';
+
+            allPlayers.slice(0, 20).forEach((p, index) => {
+                const playerItem = document.createElement('div');
+                playerItem.classList.add('player-item');
+                if (p.isSelf) {
+                    playerItem.classList.add('self-player');
+                }
+                const rankText = index + 1;
+                const nameDisplay = (p.id === player.id) ? playerName : p.id;
+                const titleText = p.title && p.title.text ? `[${p.title.text}] ` : "";
+                const titleClass = p.title && p.title.text ? `title-${p.title.text.toLowerCase().replace(/ /g, '')}` : "";
+
+                playerItem.innerHTML = `<span class="name ${titleClass}">${rankText}. ${p.emoji} ${titleText}${nameDisplay}</span><span class="score">${p.score.toFixed(0)}</span>`;
+                playerRankingList.appendChild(playerItem);
+            });
+        }
+
+        // --- Sohbet Mantığı ---
+        function addChatMessage(sender, message, isSystem = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message');
+            if (isSystem) {
+                messageDiv.innerHTML = `<span class="sender">Sistem:</span> <span class="text">${message}</span>`;
+            } else {
+                messageDiv.innerHTML = `<span class="sender">${sender}:</span> <span class="text">${message}</span>`;
+            }
+            chatMessagesDiv.appendChild(messageDiv);
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+        }
+
+        sendChatButton.addEventListener('click', () => {
+            sendMessage();
+        });
+
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            } else {
+                isChatActive = true;
+            }
+        });
+
+        chatInput.addEventListener('focus', () => {
+            isChatActive = true;
+        });
+
+        chatInput.addEventListener('blur', () => {
+            isChatActive = false;
+        });
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message !== "") {
+                addChatMessage(playerName, message);
+                chatInput.value = "";
+            }
+        }
+
+        // --- Klavye Kontrolleri (WASD ve Ok Tuşları) ---
+        document.addEventListener('keydown', (e) => {
+            if (!gameStarted || isChatActive) return;
+
+            switch (e.key.toLowerCase()) {
+                case 'w':
+                case 'arrowup':
+                    player.dy = -1;
+                    break;
+                case 's':
+                case 'arrowdown':
+                    player.dy = 1;
+                    break;
+                case 'a':
+                case 'arrowleft':
+                    player.dx = -1;
+                    break;
+                case 'd':
+                case 'arrowright':
+                    player.dx = 1;
+                    break;
+                case 'f':
+                    if (player.score >= 10 && thrownProjectiles.length < 5) {
+                        const cost = 10;
+                        player.score -= cost;
+                        const projectileRadius = 15;
+                        const projectileSpeed = 10;
+                        const angle = Math.atan2(player.dy || (Math.random() - 0.5), player.dx || (Math.random() - 0.5));
+
+                        thrownProjectiles.push({
+                            x: player.x + Math.cos(angle) * (player.radius + projectileRadius + 5),
+                            y: player.y + Math.sin(angle) * (player.radius + projectileRadius + 5),
+                            radius: projectileRadius,
+                            color: 'lightgray',
+                            dx: Math.cos(angle) * projectileSpeed,
+                            dy: Math.sin(angle) * projectileSpeed,
+                            life: 100,
+                            ownerId: player.id,
+                            scoreGiven: cost
+                        });
+                    } else if (player.score < 10) {
+                        addChatMessage("Sistem", "Top atmak için yeterli puanınız yok!", true);
+                    }
+                    break;
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (!gameStarted || isChatActive) return;
+
+            switch (e.key.toLowerCase()) {
+                case 'w':
+                case 'arrowup':
+                case 's':
+                case 'arrowdown':
+                    player.dy = 0;
+                    break;
+                case 'a':
+                case 'arrowleft':
+                case 'd':
+                case 'arrowright':
+                    player.dx = 0;
+                    break;
+            }
+        });
+
+        // --- Mobil Cihaz Algılama ve Joystick ---
+        function isMobileDevice() {
+            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        let joystickActive = false;
+        const joystickHandle = document.getElementById('mobile-joystick-handle');
+        let joystickCenterX, joystickCenterY; // İlk başta tanımla, setCanvasSize içinde güncelle
+
+        mobileJoystick.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            joystickActive = true;
+            mobileJoystick.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+        }, { passive: false });
+
+        mobileJoystick.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (!joystickActive) return;
+
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+
+            const newJoystickBaseRect = mobileJoystick.getBoundingClientRect();
+            joystickCenterX = newJoystickBaseRect.left + newJoystickBaseRect.width / 2;
+            joystickCenterY = newJoystickBaseRect.top + newJoystickBaseRect.height / 2;
+
+            const deltaX = currentX - joystickCenterX;
+            const deltaY = currentY - joystickCenterY;
+
+            const maxDistance = mobileJoystick.clientWidth / 2 - joystickHandle.clientWidth / 2;
+            const angle = Math.atan2(deltaY, deltaX);
+            const distanceVal = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY), maxDistance);
+
+            const handleX = Math.cos(angle) * distanceVal;
+            const handleY = Math.sin(angle) * distanceVal;
+
+            joystickHandle.style.transform = `translate(-50%, -50%) translate(${handleX}px, ${handleY}px)`;
+
+            player.dx = (handleX / maxDistance);
+            player.dy = (handleY / maxDistance);
+        }, { passive: false });
+
+        mobileJoystick.addEventListener('touchend', () => {
+            joystickActive = false;
+            joystickHandle.style.transform = 'translate(-50%, -50%)';
+            mobileJoystick.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+            player.dx = 0;
+            player.dy = 0;
+        });
+
+        mobileActionButton.addEventListener('click', () => {
+            if (player.score >= 10 && thrownProjectiles.length < 5) {
+                const cost = 10;
+                player.score -= cost;
+                const projectileRadius = 15;
+                const projectileSpeed = 10;
+                const angle = Math.atan2(player.dy || (Math.random() - 0.5), player.dx || (Math.random() - 0.5));
+
+                thrownProjectiles.push({
+                    x: player.x + Math.cos(angle) * (player.radius + projectileRadius + 5),
+                    y: player.y + Math.sin(angle) * (player.radius + projectileRadius + 5),
+                    radius: projectileRadius,
+                    color: 'lightgray',
+                    dx: Math.cos(angle) * projectileSpeed,
+                    dy: Math.sin(angle) * projectileSpeed,
+                    life: 100,
+                    ownerId: player.id,
+                    scoreGiven: cost
+                });
+            } else if (player.score < 10) {
+                addChatMessage("Sistem", "Top atmak için yeterli puanınız yok!", true);
+            }
+        });
+
+        // Sayfa yüklendiğinde varsayılan olarak web sitesini göster
+        showWebsite();
+        addChatMessage("Sistem", "Muz.io'ya hoş geldiniz! Oyuna başlamak için 'Oyunu Başlat' düğmesine tıklayın.", true);
+        updatePlayerRanking(); // Başlangıçta boş bir sıralama gösterilebilir veya gizli tutulabilir.
+    </script>
+</body>
+</html>
